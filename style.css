@@ -101,6 +101,7 @@ ul li .cross{
     line-height: 40px;
     text-align: center;
     border-radius: 50%;
+    top: 0;
 }
 
 ul li .cross:hover{
@@ -123,6 +124,8 @@ ul li .img-wrap{
     border-radius: 50%;
     position: absolute;
     right: 55px;
+    top: 0px;
+    
     bottom: 2px;
     display: flex;
     align-items: center;
@@ -136,13 +139,18 @@ ul li .img-wrap:hover{
 
 ul li input{
     position: absolute;
-    top: 50px;
 
-    /* display: flex;
-    align-items: center; */
+    /* display: flex; */
 
     background: #edeef0;
     border-radius: 30px;
     padding-left: 20px;
     margin-bottom: 25px;
+}
+
+
+
+ul li ul li{
+    margin-top: 10px;
+    margin-bottom: 15px;
 }
