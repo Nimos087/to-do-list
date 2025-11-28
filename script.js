@@ -1,6 +1,5 @@
 const inputBox1 = document.getElementById("input-box");
 const listConstainer = document.getElementById("list-container");
-var cssTop = 50;
 
 function addTask(){
     if(inputBox1.value === ''){
@@ -28,12 +27,35 @@ function addTask(){
     inputBox1.value = '';
 }
 
+function addSubTask(inputEle){
+    if(inputEle.value === ''){
+        alert("Good job I guess? You already completed nothing..."); //why tf is this shown when I click on the plus???
+    }
+    else{
+        let originalLi = inputEle.parentElement.parentElement.parentElement.parentElement;
+        let ul = inputEle.parentElement.parentElement.parentElement;
+        let inputLi = inputEle.parentElement.parentElement;
+        
+        let newLi = createElement("li");
+        newLi.innerHTML = inputEle.value;
+
+        ul.appendChild(newLi);
+
+        //ul.insertBefore(newLi, inputLi.querySelector("div"));
+
+        inputEle.parentElement.remove();
+
+    }
+    //why tf does this not work???
+
+}
+
 listConstainer.addEventListener("click", function(e){
-    if (e.target.tagName === "LI"){ //can stay for sublist
+    if (e.target.tagName === "LI"){ //can stay for sublist ---> should be upd so click is more accurate
         e.target.classList.toggle("checked"); //add checked class to it
         saveData();
     }
-    else if (e.target.classList.contains("cross")){
+    else if (e.target.classList.contains("cross")){ //TODO: subli (quite easy), just add a "cross" class with the right innerHTML to the right
         e.target.parentElement.remove();
         saveData();
     }
@@ -51,10 +73,21 @@ listConstainer.addEventListener("click", function(e){
         let subli = document.createElement("li");
         subul.appendChild(subli);
 
-        let subInputBox = document.createElement("input");
-        subli.appendChild(subInputBox);
+        //group input and button
+        let div = document.createElement("div");
+        subli.appendChild(div);
+        div.classList.add("sub-row")
 
-        saveData();
+        //add input
+        let subInput = document.createElement("input");
+        div.appendChild(subInput);
+
+        //add button
+        let subButton = document.createElement("button");
+        div.appendChild(subButton);
+        subButton.classList.add("sub-button");
+        subButton.innerText = "Add";
+        subButton.onclick = addSubTask(subInput);
 
         
 

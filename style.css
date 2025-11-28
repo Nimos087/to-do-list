@@ -137,20 +137,41 @@ ul li .img-wrap:hover{
     background: #5be266aa;
 }
 
-ul li input{
-    position: absolute;
-
-    /* display: flex; */
-
-    background: #edeef0;
-    border-radius: 30px;
-    padding-left: 20px;
-    margin-bottom: 25px;
-}
-
-
 
 ul li ul li{
     margin-top: 10px;
     margin-bottom: 15px;
+    width: 90%;
+}
+
+ul li ul li::before{
+    position: absolute;
+    left: 0px;
+    top: 16px;
+    height: 23px;
+    width: 23px;
+}
+
+ul li ul li input{
+    left: 45px;
+    width: 300px;
+}
+
+.sub-button{
+    /* position: absolute;
+    left: 300px; */
+    /* height: 36px; */
+    padding: 9px 25px;
+}
+
+.sub-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #edeef0;
+    border-radius: 30px;
+    margin-bottom: 25px;
+    position: absolute;
+    left: 50px;
+    height: 36px;
 }
