@@ -133,3 +133,16 @@ ul li .img-wrap{
 ul li .img-wrap:hover{
     background: #5be266aa;
 }
+
+ul li input{
+    position: absolute;
+    top: 50px;
+
+    /* display: flex;
+    align-items: center; */
+
+    background: #edeef0;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}

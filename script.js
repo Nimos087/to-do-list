@@ -23,6 +23,7 @@ function addTask(){
         span.innerHTML = "\u00d7";
         li.appendChild(span);
         saveData();
+        li.parentElement()
     }
     inputBox1.value = '';
 }
@@ -37,7 +38,13 @@ listConstainer.addEventListener("click", function(e){
         saveData();
     }
     else if (e.target.classList.contains("plus")){
-        //make input appear
+        //make sub input box
+        
+        let subInputBox = document.createElement("input");
+        //move subInputBox after cross (get to grandparent (plus -> img-wrap -> li) and get to last position)
+        e.target.parentElement.parentElement.insertBefore(subInputBox, e.target.parentElement.parentElement.lastElementChild.nextSibling);  //note:  e.target.parentElement.parentElement.appendChild(subInputBox) also works, also e.target.parentElement.parentElement.lastElementChild.nextSibling is none
+        //need to update so css alright, specifically top attribute because li doesn't care about the input
+
         //(while not sent, change plus image to something else so you can click it to erase the input box)
         //if input not empty and sent, 
         
